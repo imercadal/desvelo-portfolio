@@ -1,0 +1,106 @@
+/* Desvelo brand overrides for @n8n/chat — loaded after style.css to win the cascade */
+:root {
+  /* Colors */
+  --chat--color--primary: #005EFF;
+  --chat--color--primary-shade-50: #004FE0;
+  --chat--color--primary--shade-100: #0042C2;
+  --chat--color--secondary: #005EFF;
+  --chat--color-secondary-shade-50: #004FE0;
+  --chat--color-white: #ffffff;
+  --chat--color-light: #1a1a1a;
+  --chat--color-light-shade-50: #2a2a2a;
+  --chat--color-light-shade-100: #333333;
+  --chat--color-medium: #444444;
+  --chat--color-dark: #000000;
+  --chat--color-disabled: #444444;
+  --chat--color-typing: #ffffff;
+
+  /* Layout */
+  --chat--border-radius: 0;
+  --chat--font-family: var(--font-geist-sans), -apple-system, sans-serif;
+  --chat--transition-duration: 0.15s;
+
+  /* Window */
+  --chat--window--border: 2px solid #ffffff;
+  --chat--window--border-radius: 0;
+  --chat--window--width: 380px;
+  --chat--window--height: 520px;
+
+  /* Header */
+  --chat--header--background: #000000;
+  --chat--header--color: #ffffff;
+  --chat--header--border-bottom: 2px solid #ffffff;
+  --chat--heading--font-size: 1rem;
+  --chat--subtitle--font-size: 0.75rem;
+
+  /* Messages */
+  --chat--message--border-radius: 0;
+  --chat--message--bot--background: #000000;
+  --chat--message--bot--color: #ffffff;
+  --chat--message--bot--border: 1px solid #ffffff;
+  --chat--message--user--background: #005EFF;
+  --chat--message--user--color: #ffffff;
+  --chat--message--user--border: 1px solid #005EFF;
+  --chat--message--pre--background: rgba(255, 255, 255, 0.08);
+
+  /* Body */
+  --chat--body--background: #0a0a0a;
+
+  /* Footer / Input area */
+  --chat--footer--background: #000000;
+  --chat--footer--color: #ffffff;
+  --chat--input--background: #000000;
+  --chat--input--text-color: #ffffff;
+  --chat--input--border: 2px solid #ffffff;
+  --chat--input--border-active: 2px solid #005EFF;
+  --chat--input--border-radius: 0;
+
+  /* Toggle button */
+  --chat--toggle--size: 56px;
+  --chat--toggle--border-radius: 0;
+  --chat--toggle--background: #005EFF;
+  --chat--toggle--hover--background: #004FE0;
+  --chat--toggle--active--background: #0042C2;
+  --chat--toggle--color: #ffffff;
+
+  /* Primary buttons */
+  --chat--button--border-radius: 0;
+  --chat--button--background--primary: #005EFF;
+  --chat--button--color--primary: #ffffff;
+  --chat--button--border--primary: none;
+  --chat--button--background--primary--hover: #ffffff;
+  --chat--button--color--primary--hover: #000000;
+  --chat--button--border--primary--hover: none;
+  --chat--button--background--primary--disabled: #333333;
+  --chat--button--color--primary--disabled: #666666;
+
+  /* Send / file icon buttons */
+  --chat--input--send--button--background: #000000;
+  --chat--input--send--button--color: #005EFF;
+  --chat--input--send--button--background-hover: #005EFF;
+  --chat--input--send--button--color-hover: #ffffff;
+  --chat--input--file--button--background: #000000;
+  --chat--input--file--button--color: #005EFF;
+  --chat--input--file--button--background-hover: #000000;
+  --chat--input--file--button--color-hover: #ffffff;
+
+  /* Close button */
+  --chat--close--button--color-hover: #005EFF;
+}
+
+/* ─── Custom toggle icon ─────────────────────────────────────────────────── */
+/* Hide n8n's internal Vue-rendered icon */
+.chat-window-toggle svg {
+  display: none;
+}
+
+/* Inject the Desvelo chat bubble via ::before */
+.chat-window-toggle::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2h18v14H8l-6 4V2z' stroke='white' stroke-width='2' fill='none'/%3E%3Cline x1='6' y1='7' x2='16' y2='7' stroke='white' stroke-width='1.5'/%3E%3Cline x1='6' y1='11' x2='13' y2='11' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E");
+}

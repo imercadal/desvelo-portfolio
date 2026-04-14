@@ -1,0 +1,204 @@
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  background: #0a0a0a;
+  border-radius: var(--border-radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.dotsContainer {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dotWrapper {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dotCore {
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  animation: smudge-core 2.4s ease-in-out infinite;
+}
+
+.dotWrapper:nth-child(1) .dotCore { animation-delay: 0s; }
+.dotWrapper:nth-child(2) .dotCore { animation-delay: 0.2s; }
+.dotWrapper:nth-child(3) .dotCore { animation-delay: 0.4s; }
+
+.smudgeRing {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.15) 40%, rgba(255,255,255,0) 70%);
+  animation: smudge-spread 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.dotWrapper:nth-child(1) .smudgeRing { animation-delay: 0s; }
+.dotWrapper:nth-child(2) .smudgeRing { animation-delay: 0.2s; }
+.dotWrapper:nth-child(3) .smudgeRing { animation-delay: 0.4s; }
+
+.smudgeBlob {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.08) 50%, transparent 75%);
+  animation: smudge-blob 2.4s ease-in-out infinite;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+.dotWrapper:nth-child(1) .smudgeBlob { animation-delay: 0s; }
+.dotWrapper:nth-child(2) .smudgeBlob { animation-delay: 0.2s; }
+.dotWrapper:nth-child(3) .smudgeBlob { animation-delay: 0.4s; }
+
+.inkSpatter {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  animation: spatter 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.dotWrapper:nth-child(1) .inkSpatter { animation-delay: 0s; }
+.dotWrapper:nth-child(2) .inkSpatter { animation-delay: 0.2s; }
+.dotWrapper:nth-child(3) .inkSpatter { animation-delay: 0.4s; }
+
+.spatter1 { --sx: -18px; --sy: -14px; }
+.spatter2 { --sx: 20px; --sy: -10px; }
+.spatter3 { --sx: -12px; --sy: 18px; }
+.spatter4 { --sx: 16px; --sy: 15px; }
+
+@keyframes smudge-core {
+  0%, 100% {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    opacity: 1;
+    transform: scale(1);
+  }
+  15% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  40% {
+    width: 38px;
+    height: 38px;
+    border-radius: 45% 55% 50% 48%;
+    opacity: 0.6;
+    transform: scale(1) rotate(15deg);
+  }
+  55% {
+    width: 44px;
+    height: 44px;
+    border-radius: 42% 56% 48% 52%;
+    opacity: 0.35;
+    transform: scale(1.05) rotate(25deg);
+  }
+  75% {
+    width: 30px;
+    height: 30px;
+    border-radius: 48% 52% 50% 50%;
+    opacity: 0.6;
+    transform: scale(1) rotate(10deg);
+  }
+}
+
+@keyframes smudge-spread {
+  0%, 100% {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    width: 56px;
+    height: 56px;
+    opacity: 0.4;
+    transform: scale(1.2);
+  }
+  65% {
+    width: 64px;
+    height: 64px;
+    opacity: 0.15;
+    transform: scale(1.3);
+  }
+  80% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes smudge-blob {
+  0%, 100% {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    opacity: 0.6;
+  }
+  45% {
+    width: 52px;
+    height: 48px;
+    border-radius: 40% 60% 55% 45%;
+    opacity: 0.5;
+    transform: scale(1.1) rotate(20deg);
+  }
+  60% {
+    width: 58px;
+    height: 52px;
+    border-radius: 55% 45% 42% 58%;
+    opacity: 0.25;
+    transform: scale(1.15) rotate(-10deg);
+  }
+  80% {
+    opacity: 0;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes spatter {
+  0%, 100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0);
+  }
+  30% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0);
+  }
+  45% {
+    opacity: 0.7;
+    transform: translate(calc(var(--sx) * 0.6), calc(var(--sy) * 0.6)) scale(1);
+  }
+  55% {
+    opacity: 0.5;
+    transform: translate(var(--sx), var(--sy)) scale(0.8);
+  }
+  70% {
+    opacity: 0;
+    transform: translate(calc(var(--sx) * 1.2), calc(var(--sy) * 1.2)) scale(0);
+  }
+}
