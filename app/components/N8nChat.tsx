@@ -8,7 +8,7 @@ import './n8n-chat-overrides.css';
 export default function N8nChat() {
   useEffect(() => {
     createChat({
-      webhookUrl: process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL ?? '',
+      webhookUrl: process.env.NEXT_PUBLIC_AGENT_WEBHOOK_URL ?? '',
       webhookConfig: { method: 'POST', headers: {} },
       mode: 'window',
       chatInputKey: 'chatInput',

@@ -29,7 +29,7 @@ npm install
 Create a `.env.local` file in the project root:
 
 ```
-NEXT_PUBLIC_N8N_WEBHOOK_URL=<NEXT_PUBLIC_N8N_WEBHOOK_URL=""> (publicly available)
+NEXT_PUBLIC_N8N_WEBHOOK_URL="https://imercadal.app.n8n.cloud/webhook/03f84ff4-e680-4200-8162-c7f2aaab2d74/chat"> (publicly available)
 NEXT_PUBLIC_EMAIL_WEBHOOK_URL
 ```
 
