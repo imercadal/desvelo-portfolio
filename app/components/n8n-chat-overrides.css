@@ -29,7 +29,7 @@
   /* Header */
   --chat--header--background: #000000;
   --chat--header--color: #ffffff;
-  --chat--header--border-bottom: 2px solid #ffffff;
+  --chat--header--border-bottom: 2px solid #ea0000;
   --chat--heading--font-size: 1rem;
   --chat--subtitle--font-size: 0.75rem;
 
@@ -86,6 +86,11 @@
 
   /* Close button */
   --chat--close--button--color-hover: #005EFF;
+}
+
+/* ─── Hide empty header ──────────────────────────────────────────────────── */
+.chat-header {
+  display: none;
 }
 
 /* ─── Custom toggle icon ─────────────────────────────────────────────────── */

@@ -23,8 +23,8 @@ export default function N8nChat() {
       ],
       i18n: {
         en: {
-          title: "Hi, I'm Cacho",
-          subtitle: 'Ask us anything about our work or services.',
+          title: '',
+          subtitle: '',
           footer: '',
           getStarted: 'Start Conversation',
           inputPlaceholder: 'Type your question...',
