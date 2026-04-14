@@ -1,25 +1,7 @@
 import Image from 'next/image';
 import Script from 'next/script';
 import EmailSignup from './components/EmailSignup';
-
-const SERVICES = [
-  {
-    label: 'Video Production',
-    desc: 'End-to-end production for brands, campaigns, and stories that demand to be seen.',
-  },
-  {
-    label: 'Filmmaking',
-    desc: 'Narrative and documentary work built on craft, from pre-production through post.',
-  },
-  {
-    label: 'Event Videography',
-    desc: 'Live events and personal milestones captured with the attention they deserve.',
-  },
-  {
-    label: 'Web Design & Dev',
-    desc: 'Custom sites built from scratch — no templates, no shortcuts.',
-  },
-];
+import { SERVICES } from './data/services';
 
 export default function Home() {
   return (
@@ -84,8 +66,8 @@ export default function Home() {
               key={s.label}
               className={`border-r-2 border-b-2 border-black p-6 ${
                 // Pattern break: third cell gets an extra-thick top border
-                i === 2 ? 'border-t-[3px]' : ''
-              }`}
+                i === 2 ? 'border-r-[5px]' : ''
+              } ${i === 0 ? 'border-b-[5px]' : ''}`}
             >
               <div className="h-1 w-8 bg-highlight mb-4" />
               <h2 className="font-mono text-xs uppercase tracking-widest mb-3">{s.label}</h2>

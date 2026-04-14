@@ -58,3 +58,10 @@ Do **not** put the package `@import` in `globals.css` using a bare npm specifier
 ## Email signup
 
 `app/components/EmailSignup.tsx` POSTs `{ email }` to the n8n webhook at `NEXT_PUBLIC_EMAIL_WEBHOOK_URL` (`.env.local`). The workflow appends the email and a timestamp to a Google Sheet.
+
+## Analytics
+
+Umami analytics is loaded in `app/layout.tsx` via `next/script` with `strategy="afterInteractive"`. It auto-tracks page views — no custom event calls needed unless adding explicit tracking. Configured via two env vars in `.env.local`:
+
+- `NEXT_PUBLIC_UMAMI_SCRIPT_URL` — the Umami script endpoint (e.g. `https://cloud.umami.is/script.js`)
+- `NEXT_PUBLIC_UMAMI_WEBSITE_ID` — the site's unique ID from the Umami dashboard
